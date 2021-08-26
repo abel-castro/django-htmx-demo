@@ -18,13 +18,27 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 
-from demo.views import HomeView, InfiniteScrollView, InfiniteScrollMoreRowsView, ClickToLoadView, ClickToLoadMoreRowsView
+from demo.views import (
+    HomeView,
+    InfiniteScrollView,
+    InfiniteScrollMoreRowsView,
+    ClickToLoadView,
+    ClickToLoadMoreRowsView,
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("", HomeView.as_view(), name="home"),
     path("inifite-scroll/", InfiniteScrollView.as_view(), name="infinite_scroll"),
-    path("inifite-scroll/more-rows/", InfiniteScrollMoreRowsView.as_view(), name="infinite_scroll_more_rows"),
+    path(
+        "inifite-scroll/more-rows/",
+        InfiniteScrollMoreRowsView.as_view(),
+        name="infinite_scroll_more_rows",
+    ),
     path("click-to-load/", ClickToLoadView.as_view(), name="click_to_load"),
-    path("click-to-load/more-rows/", ClickToLoadMoreRowsView.as_view(), name="click_to_load_more_rows"),
+    path(
+        "click-to-load/more-rows/",
+        ClickToLoadMoreRowsView.as_view(),
+        name="click_to_load_more_rows",
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
