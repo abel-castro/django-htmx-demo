@@ -1,0 +1,19 @@
+{% for object in object_list %}
+    {% if forloop.last and page_obj.has_next %}
+    <tr hx-get="{% url 'infinite_scroll_more_rows' %}?page={{ page_obj.next_page_number }}" hx-trigger="revealed" hx-swap="afterend">
+      <th scope="row">{{ object.id }}</th>
+      <td>{{ object.name }}</td>
+      <td>{{ object.expiration_date }}</td>
+      <td>{{ object.category }}</td>
+      <td>{{ object.description }}</td>
+    </tr>
+    {% else %}
+    <tr>
+      <th scope="row">{{ object.id }}</th>
+      <td>{{ object.name }}</td>
+      <td>{{ object.expiration_date }}</td>
+      <td>{{ object.category }}</td>
+      <td>{{ object.description }}</td>
+    </tr>
+    {% endif %}
+{% endfor %}

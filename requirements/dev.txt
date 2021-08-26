@@ -1,0 +1,4 @@
+-r ./base.txt
+
+black
+pytest==6.2.2

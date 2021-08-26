@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="g-4 col-xs-12">
+            <h2>Demo list</h2>
+        </div>
+    </div>
+    <div class="list-group col-xs-12 col-sm-6">
+      <a href="{% url 'infinite_scroll' %}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Infinite scroll demo</h5>
+        </div>
+        <p class="mb-1">Demonstrate how to use infinite scroll with a table</p>
+      </a>
+      <a href="{% url 'click_to_load' %}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Click to load demo</h5>
+        </div>
+        <p class="mb-1">Demonstrate how to use click to load with a table</p>
+      </a>
+    </div>
+{% endblock %}

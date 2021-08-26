@@ -1,0 +1,17 @@
+{% for object in object_list %}
+    <tr id="row-{{ forloop.counter }}">
+        <th scope="row">{{ object.id }}</th>
+        <td>{{ object.name }}</td>
+        <td>{{ object.expiration_date }}</td>
+        <td>{{ object.category }}</td>
+        <td>{{ object.description }}</td>
+    </tr>
+    {% if forloop.last and page_obj.has_next %}
+    <tr id="row-{{ forloop.counter }}-more">
+        <td colspan="5">
+            <button class='btn' hx-get="{% url 'click_to_load_more_rows' %}?page={{ page_obj.next_page_number }}" hx-target="#row-{{ forloop.counter }}-more" hx-swap="outerHTML">
+             Load More Agents...
+            </button>
+        </td>
+    {% endif %}
+{% endfor %}
